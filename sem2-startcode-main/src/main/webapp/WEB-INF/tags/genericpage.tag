@@ -48,10 +48,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Bestil</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.html"
-                            >Log ind</a>
-                        </li>
                     </ul>
                 </div>
                 <a href="${pageContext.request.contextPath}/fc/checkout">
@@ -61,6 +57,33 @@
                     </svg>
 
                 </a>
+
+
+                <div>
+
+                    <c:if test="${sessionScope.user != null }">
+                        ${sessionScope.user.email}
+                    </c:if>
+
+                    <c:set var="thisPage" value="${pageContext.request.servletPath}"/>
+                    <c:set var="isNotLoginPage" value="${!fn:endsWith(thisPage,'loginpage.jsp')}"/>
+                    <c:set var="isNotRegisterPage" value="${!fn:endsWith(thisPage,'registerpage.jsp')}"/>
+
+                    <c:if test="${isNotLoginPage && isNotRegisterPage}">
+                    <c:if test="${sessionScope.user != null }">
+                        <a type="button" class="btn btn-sm  btn-outline-secondary"
+                           href="${pageContext.request.contextPath}/fc/logoutcommand">Logout</a>
+                    </c:if>
+                    <c:if test="${sessionScope.user == null }">
+                        <a type="button" class="btn btn-sm  btn-outline-secondary"
+                           href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
+                        <a type="button" class="btn btn-sm  btn-outline-secondary"
+                           href="${pageContext.request.contextPath}/fc/registerpage">Sign up</a>
+                    </c:if>
+                </div>
+                </c:if>
+
+
             </div>
         </nav>
     </header>
