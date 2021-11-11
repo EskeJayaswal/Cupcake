@@ -20,7 +20,7 @@
             </div>
             <div class="row">
 
-                <div class="col-md-7 col-lg-8">
+                <div class="col-md-7 col-lg-7">
                     <form name="addToBasket" action="#" method="POST">
                         <div class="row">
 
@@ -60,11 +60,13 @@
                     </form>
                 </div>
 
-                <div class="col-md-5 col-lg-4 order-md-last">
+                <div class="col-md-5 col-lg-5 order-md-last">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-primary">Din kurv</span>
                         <span class="badge bg-primary rounded-pill">3</span>
                     </h4>
+
+
                                         <ul class="list-group mb-3">
                                             <li class="list-group-item d-flex justify-content-between lh-sm">
                                                 <div>
@@ -73,6 +75,7 @@
                                                 </div>
                                                 <span class="text-muted">100kr</span>
                                             </li>
+
                                             <li class="list-group-item d-flex justify-content-between lh-sm">
                                                 <div>
                                                     <h6 class="my-0">Mandel bund med oreo topping</h6>
@@ -96,6 +99,7 @@
                                             </li>
 
                                         </ul>
+
 
                     <a href="${pageContext.request.contextPath}/fc/checkout">
                         <button class="btn btn-primary mt-1" type="submit" value="">Gå til kurv</button>
