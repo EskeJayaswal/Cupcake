@@ -1,3 +1,4 @@
+<%@ page import="business.services.LogicFacade" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -13,6 +14,21 @@
     </jsp:attribute>
 
     <jsp:body>
+
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Angiv din primære idræt:</label>
+            <select class="form-control" name="sport" id="exampleFormControlSelect1">
+
+
+                <c:forEach var="bottomList" items="${applicationScope.bottomList}">
+                    <option value="${bottomList.id}">${bottomList.name}</option>
+
+                </c:forEach>
+
+            </select>
+        </div>
+
 
         <div class="container">
             <div class="my-5">
@@ -67,38 +83,38 @@
                     </h4>
 
 
-                                        <ul class="list-group mb-3">
-                                            <li class="list-group-item d-flex justify-content-between lh-sm">
-                                                <div>
-                                                    <h6 class="my-0">Chokolade bund med jordbær topping</h6>
-                                                    <small class="text-muted">20stk</small>
-                                                </div>
-                                                <span class="text-muted">100kr</span>
-                                            </li>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                                <h6 class="my-0">Chokolade bund med jordbær topping</h6>
+                                <small class="text-muted">20stk</small>
+                            </div>
+                            <span class="text-muted">100kr</span>
+                        </li>
 
-                                            <li class="list-group-item d-flex justify-content-between lh-sm">
-                                                <div>
-                                                    <h6 class="my-0">Mandel bund med oreo topping</h6>
-                                                    <small class="text-muted">15stk</small>
-                                                </div>
-                                                <span class="text-muted">80kr</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between lh-sm">
-                                                <div>
-                                                    <h6 class="my-0">Chokolade bund med oreo topping</h6>
-                                                    <small class="text-muted">30stk</small>
-                                                </div>
-                                                <span class="text-muted">150kr</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between lh-sm mt-2">
-                                                <div>
-                                                    <h6 class="my-0">Sub total</h6>
-                                                    <small class="text-muted">65stk</small>
-                                                </div>
-                                                <span class="text-muted">330kr</span>
-                                            </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                                <h6 class="my-0">Mandel bund med oreo topping</h6>
+                                <small class="text-muted">15stk</small>
+                            </div>
+                            <span class="text-muted">80kr</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                                <h6 class="my-0">Chokolade bund med oreo topping</h6>
+                                <small class="text-muted">30stk</small>
+                            </div>
+                            <span class="text-muted">150kr</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm mt-2">
+                            <div>
+                                <h6 class="my-0">Sub total</h6>
+                                <small class="text-muted">65stk</small>
+                            </div>
+                            <span class="text-muted">330kr</span>
+                        </li>
 
-                                        </ul>
+                    </ul>
 
 
                     <a href="${pageContext.request.contextPath}/fc/checkout">
