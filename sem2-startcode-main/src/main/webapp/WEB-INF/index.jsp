@@ -14,25 +14,95 @@
 
     <jsp:body>
 
-        <div>
-            <h2>Our Cool Site</h2>
-
-            <div style="margin-top: 3em;margin-bottom: 3em;">
-                Main page for this 2. semester start project used at cphbusiness.dk
+        <div class="container">
+            <div class="my-5">
+                <h1>Bestil dine cupcakes her</h1>
             </div>
+            <div class="row">
 
-            <c:if test="${sessionScope.role == 'employee' }">
-                <p style="font-size: larger">This is what you can do,
-                    since your are logged in as an employee</p>
-                 <p><a href="fc/employeepage">Employee Page</a>
-             </c:if>
+                <div class="col-md-7 col-lg-8">
+                    <form name="addToBasket" action="#" method="POST">
+                        <div class="row">
 
-             <c:if test="${sessionScope.role == 'customer' }">
-                <p style="font-size: larger">This is what you can do, since your
-                    are logged in as a customer</p>
-                <p><a href="fc/customerpage">Customer Page</a>
-            </c:if>
+                            <div class="col-md-5">
+                                <label for="country" class="form-label">Bund:</label>
+                                <select class="form-select" id="country" required="">
+                                    <option value="">Vælg..</option>
+                                    <option>Chokolade</option>
+                                    <option>Mandel</option>
+                                    <option>Marcipan</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select a valid country.
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="state" class="form-label">Topping:</label>
+                                <select class="form-select" id="state" required="">
+                                    <option value="">Vælg..</option>
+                                    <option>Jordbær</option>
+                                    <option>Mango</option>
+                                    <option>Oreo</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please provide a valid state.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="quantity" class="form-label">Antal:</label>
+                                <input type="number" min="1" max="100" class="form-control" id="quantity" placeholder=""
+                                       required="">
+                            </div>
 
+
+                        </div>
+                        <button class="btn btn-primary mt-3" type="submit" value="Reset Button">Tilføj</button>
+                    </form>
+                </div>
+
+                <div class="col-md-5 col-lg-4 order-md-last">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-primary">Din kurv</span>
+                        <span class="badge bg-primary rounded-pill">3</span>
+                    </h4>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                                <h6 class="my-0">Chokolade bund med jordbær topping</h6>
+                                <small class="text-muted">20stk</small>
+                            </div>
+                            <span class="text-muted">100kr</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                                <h6 class="my-0">Mandel bund med oreo topping</h6>
+                                <small class="text-muted">15stk</small>
+                            </div>
+                            <span class="text-muted">80kr</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                                <h6 class="my-0">Chokolade bund med oreo topping</h6>
+                                <small class="text-muted">30stk</small>
+                            </div>
+                            <span class="text-muted">150kr</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-sm mt-2">
+                            <div>
+                                <h6 class="my-0">Sub total</h6>
+                                <small class="text-muted">65stk</small>
+                            </div>
+                            <span class="text-muted">330kr</span>
+                        </li>
+
+                    </ul>
+
+                    <a href="checkout.html">
+                        <button class="btn btn-primary mt-1" type="submit" value="">Gå til kurv</button>
+                    </a>
+                </div>
+
+            </div>
         </div>
 
     </jsp:body>

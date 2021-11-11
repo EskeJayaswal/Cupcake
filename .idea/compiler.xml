@@ -15,7 +15,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="sem2-startcode" options="-endorseddirs C:\Users\eskea\Desktop\sem2-Skabelon\sem2-startcode-main\target/endorsed" />
+      <module name="sem2-startcode" options="-endorseddirs C:\Users\Jonas\OneDrive\Documents\GitHub\Cupcake\sem2-startcode-main\target/endorsed" />
     </option>
   </component>
 </project>
