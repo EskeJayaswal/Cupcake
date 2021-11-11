@@ -28,12 +28,12 @@ public class ToppingMapper {
                     if (toppingList == null) {
                         toppingList = new ArrayList<>();
                     }
-                    int bottom_id = rs.getInt("bottom_id");
+                    int topping_id = rs.getInt("topping_id");
                     String name = rs.getString("name");
                     float price = rs.getFloat("price");
 
 
-                    Topping topping = new Topping(bottom_id, name, price);
+                    Topping topping = new Topping(topping_id, name, price);
                     toppingList.add(topping);
                 }
 

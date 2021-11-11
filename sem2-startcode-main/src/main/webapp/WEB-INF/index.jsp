@@ -15,21 +15,6 @@
 
     <jsp:body>
 
-
-        <div class="form-group">
-            <label for="exampleFormControlSelect1">Angiv din primære idræt:</label>
-            <select class="form-control" name="sport" id="exampleFormControlSelect1">
-
-
-                <c:forEach var="bottomList" items="${applicationScope.bottomList}">
-                    <option value="${bottomList.id}">${bottomList.name}</option>
-
-                </c:forEach>
-
-            </select>
-        </div>
-
-
         <div class="container">
             <div class="my-5">
                 <h1>Bestil dine cupcakes her</h1>
@@ -43,10 +28,13 @@
                             <div class="col-md-5">
                                 <label for="country" class="form-label">Bund:</label>
                                 <select class="form-select" id="country" required="">
-                                    <option value="">Vælg..</option>
-                                    <option>Chokolade</option>
-                                    <option>Mandel</option>
-                                    <option>Marcipan</option>
+
+                                    <c:forEach var="bottomList" items="${applicationScope.bottomList}">
+                                        <option value="${bottomList.id}">${bottomList.name}</option>
+
+                                    </c:forEach>
+
+
                                 </select>
                                 <div class="invalid-feedback">
                                     Please select a valid country.
@@ -55,10 +43,12 @@
                             <div class="col-md-4">
                                 <label for="state" class="form-label">Topping:</label>
                                 <select class="form-select" id="state" required="">
-                                    <option value="">Vælg..</option>
-                                    <option>Jordbær</option>
-                                    <option>Mango</option>
-                                    <option>Oreo</option>
+
+                                    <c:forEach var="toppingList" items="${applicationScope.toppingList}">
+                                        <option value="${toppingList.id}">${toppingList.name}</option>
+
+                                    </c:forEach>
+
                                 </select>
                                 <div class="invalid-feedback">
                                     Please provide a valid state.
