@@ -18,13 +18,16 @@ public class UserMapper
     {
         try (Connection connection = database.connect())
         {
-            String sql = "INSERT INTO users (email, password, role) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO users (email, password, fname, lname, balance, role) VALUES (?, ?, ?, ?, ?, ?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
             {
                 ps.setString(1, user.getEmail());
                 ps.setString(2, user.getPassword());
-                ps.setString(3, user.getRole());
+                ps.setString(3,user.getFname());
+                ps.setString(4,user.getLname());
+                ps.setFloat(5,user.getBalance());
+                ps.setString(6, user.getRole());
                 ps.executeUpdate();
                 ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
@@ -46,7 +49,7 @@ public class UserMapper
     {
         try (Connection connection = database.connect())
         {
-            String sql = "SELECT id, role FROM users WHERE email=? AND password=?";
+            String sql = "SELECT id, fname, lname, balance, role FROM users WHERE email=? AND password=?";
 
             try (PreparedStatement ps = connection.prepareStatement(sql))
             {
@@ -57,7 +60,10 @@ public class UserMapper
                 {
                     String role = rs.getString("role");
                     int id = rs.getInt("id");
-                    User user = new User(email, password, role);
+                    String fname = rs.getString("fname");
+                    String lname = rs.getString("lname");
+                    float balance = rs.getFloat("balance");
+                    User user = new User(email, password, fname, lname, balance, role);
                     user.setId(id);
                     return user;
                 } else

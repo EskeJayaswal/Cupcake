@@ -30,6 +30,19 @@
                     </div>
                 </div>
 
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label" for="fname">Fornavn</label>
+                    <div class="col-sm-4">
+                        <input id="fname" class="form-control" type="text" name="fname" value="${param.fname}" placeholder="Indtast fornavn">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-1 col-form-label" for="lname">Efternavn</label>
+                    <div class="col-sm-4">
+                        <input id="lname" class="form-control" type="text" name="lname" value="${param.lname}" placeholder="Indtast efternavn">
+                    </div>
+                </div>
+
                 <input class="btn btn-primary" type="submit" type="submit" value="Submit">
             </form>
 
