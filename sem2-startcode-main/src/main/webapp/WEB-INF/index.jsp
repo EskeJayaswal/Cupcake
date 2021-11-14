@@ -22,27 +22,21 @@
             <div class="row">
 
                 <div class="col-md-7 col-lg-7">
-                    <form name="addToBasket" action="#" method="POST">
+                    <form name="addToBasket" action="${pageContext.request.contextPath}/fc/addToBasket" method="POST">
                         <div class="row">
 
                             <div class="col-md-5">
-                                <label for="country" class="form-label">Bund:</label>
-                                <select class="form-select" id="country" required="">
-
+                                <label for="bottom" class="form-label">Bund:</label>
+                                <select class="form-select" name="bottomSelection" id="bottom" required="">
                                     <c:forEach var="bottomList" items="${applicationScope.bottomList}">
                                         <option value="${bottomList.id}">${bottomList.name}</option>
-
                                     </c:forEach>
-
-
                                 </select>
-                                <div class="invalid-feedback">
-                                    Please select a valid country.
-                                </div>
+
                             </div>
                             <div class="col-md-4">
-                                <label for="state" class="form-label">Topping:</label>
-                                <select class="form-select" id="state" required="">
+                                <label for="topping" class="form-label">Topping:</label>
+                                <select class="form-select" name="toppingSelection" id="topping" required="">
 
                                     <c:forEach var="toppingList" items="${applicationScope.toppingList}">
                                         <option value="${toppingList.id}">${toppingList.name}</option>
@@ -50,60 +44,41 @@
                                     </c:forEach>
 
                                 </select>
-                                <div class="invalid-feedback">
-                                    Please provide a valid state.
-                                </div>
+
                             </div>
                             <div class="col-md-3">
                                 <label for="quantity" class="form-label">Antal:</label>
-                                <input type="number" min="1" max="100" class="form-control" id="quantity" placeholder=""
+                                <input type="number" min="1" max="100" class="form-control" name="quantitySelection" id="quantity" value="quantity" placeholder=""
                                        required="">
                             </div>
 
 
                         </div>
-                        <button class="btn btn-primary mt-3" type="submit" value="Reset Button">Tilføj</button>
+                        <button class="btn btn-primary mt-3" type="submit">Tilføj</button>
                     </form>
+
                 </div>
+
 
                 <div class="col-md-5 col-lg-5 order-md-last">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-primary">Din kurv</span>
-                        <span class="badge bg-primary rounded-pill">3</span>
+                        <span class="badge bg-primary rounded-pill">${applicationScope.cartList.size()}</span>
                     </h4>
 
 
+
+
                     <ul class="list-group mb-3">
+                        <c:forEach var="cartItem" items="${applicationScope.cartList}">
                         <li class="list-group-item d-flex justify-content-between lh-sm">
                             <div>
-                                <h6 class="my-0">Chokolade bund med jordbær topping</h6>
-                                <small class="text-muted">20stk</small>
+                                <h6 class="my-0">${cartItem.bottom.getName()} bund med ${cartItem.topping.getName()} topping</h6>
+                                <small class="text-muted">${cartItem.quantity} stk</small>
                             </div>
-                            <span class="text-muted">100kr</span>
+                            <span class="text-muted">${cartItem.price}kr</span>
                         </li>
-
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                                <h6 class="my-0">Mandel bund med oreo topping</h6>
-                                <small class="text-muted">15stk</small>
-                            </div>
-                            <span class="text-muted">80kr</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                                <h6 class="my-0">Chokolade bund med oreo topping</h6>
-                                <small class="text-muted">30stk</small>
-                            </div>
-                            <span class="text-muted">150kr</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-sm mt-2">
-                            <div>
-                                <h6 class="my-0">Sub total</h6>
-                                <small class="text-muted">65stk</small>
-                            </div>
-                            <span class="text-muted">330kr</span>
-                        </li>
-
+                        </c:forEach>
                     </ul>
 
 
@@ -111,6 +86,7 @@
                         <button class="btn btn-primary mt-1" type="submit" value="">Gå til kurv</button>
                     </a>
                 </div>
+
 
             </div>
         </div>

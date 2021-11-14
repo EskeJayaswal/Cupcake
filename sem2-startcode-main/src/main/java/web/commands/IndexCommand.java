@@ -1,19 +1,29 @@
 package web.commands;
 
 
+import business.entities.Bottom;
+import business.entities.CartItem;
+import business.entities.Topping;
 import business.exceptions.UserException;
 import business.services.LogicFacade;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
 
 public class IndexCommand extends CommandUnprotectedPage {
     private LogicFacade logicFacade;
+    private List<CartItem> cartList;
 
 
     public IndexCommand(String pageToShow) {
         super(pageToShow);
         logicFacade = new LogicFacade(database);
+        cartList = new ArrayList<>();
+
+
+
     }
 
     @Override
@@ -27,6 +37,10 @@ public class IndexCommand extends CommandUnprotectedPage {
             if (request.getServletContext().getAttribute("toppingList") == null) {
                 request.getServletContext().setAttribute("toppingList", logicFacade.getAllToppings());
             }
+
+
+            request.getServletContext().setAttribute("cartList", cartList);
+
 
 
             return pageToShow;
