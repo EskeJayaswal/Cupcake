@@ -14,19 +14,24 @@
                 <div class="row mb-3">
                     <label class="col-sm-1 col-form-label" for="email">Email</label>
                     <div class="col-sm-4">
-                        <input id="email" class="form-control" type="text" name="email" value="${param.email}" placeholder="Indtast gyldig email">
+
+                        <input id="email" class="form-control" type="text" name="email" value="${param.email}" placeholder="Indtast email">
+
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label class="col-sm-1 col-form-label" for="password1">Password</label>
                     <div class="col-sm-4">
-                        <input id="password1" class="form-control" type="password" name="password1"  value="${param.password1}"  placeholder="Indtast dit kodeord">
+
+                        <input id="password1" class="form-control" type="password" name="password1"  value="${param.password1}"  placeholder="Indtast password">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label class="col-sm-1 col-form-label" for="password2">Password</label>
                     <div class="col-sm-4">
-                        <input id="password2" class="form-control" type="password" name="password2" value="${param.password2}"  placeholder="Bekræft kodeord">
+
+                        <input id="password2" class="form-control" type="password" name="password2" value="${param.password2}"  placeholder="Bekræft password">
+
                     </div>
                 </div>
 

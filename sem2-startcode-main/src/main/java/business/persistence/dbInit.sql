@@ -14,7 +14,7 @@ CREATE TABLE `users` (
   `password` varchar(45) NOT NULL,
   `fname` varchar(45) NOT NULL,
   `lname` varchar(45) NOT NULL,
-  `konto` float(11) NOT NULL,
+  `balance` float(11) NOT NULL,
   `role` varchar(20) NOT NULL DEFAULT 'customer',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
