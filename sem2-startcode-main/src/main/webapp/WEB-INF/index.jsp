@@ -67,8 +67,6 @@
                     </h4>
 
 
-
-
                     <ul class="list-group mb-3">
                         <c:forEach var="cartItem" items="${applicationScope.cartList}">
                         <li class="list-group-item d-flex justify-content-between lh-sm">

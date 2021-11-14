@@ -28,4 +28,12 @@ public class LogicFacade {
     public List<Topping> getAllToppings() throws UserException {
         return toppingMapper.getAllToppings();
     }
+
+    public Bottom getBottomFromId(int id) throws UserException {
+        return bottomMapper.getAllBottoms().get(id-1);
+    }
+
+    public Topping getToppingFromId(int id) throws UserException {
+        return toppingMapper.getAllToppings().get(id-1);
+    }
 }

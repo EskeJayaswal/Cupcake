@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 public class FrontController extends HttpServlet
 {
     private final static String USER = "root";
-    private final static String PASSWORD = "datamatik13";
+    private final static String PASSWORD = "Schnutti12345";
     private final static String URL = "jdbc:mysql://localhost:3306/cupcake?serverTimezone=CET";
 
     public static Database database;
@@ -39,7 +39,6 @@ public class FrontController extends HttpServlet
         }
 
         // Initialize whatever global datastructures needed here:
-
     }
 
     protected void processRequest(

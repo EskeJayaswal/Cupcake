@@ -5,12 +5,14 @@ public class CartItem {
     private Topping topping;
     private int quantity;
     private float price;
+    private int id;
 
-    public CartItem(Bottom bottom, Topping topping, int quantity, float price) {
+    public CartItem(int id, Bottom bottom, Topping topping, int quantity, float price) {
         this.bottom = bottom;
         this.topping = topping;
         this.quantity = quantity;
         this.price = price;
+        this.id = id;
     }
 
     public Bottom getBottom() {
@@ -43,5 +45,13 @@ public class CartItem {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
