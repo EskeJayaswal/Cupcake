@@ -8,6 +8,7 @@ import business.services.LogicFacade;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class RemoveFromBasketCommand extends CommandUnprotectedPage {
@@ -26,6 +27,11 @@ public class RemoveFromBasketCommand extends CommandUnprotectedPage {
         cartList = (List<CartItem>) request.getServletContext().getAttribute("cartList");
 
         cartList.remove(id-1);
+
+        HttpSession session = request.getSession();
+
+        session.setAttribute("sumQuantity",sumQuantity(cartList));
+        session.setAttribute("sumPrice",sumPrice(cartList));
         rearrangeList(cartList);
 
         return "checkout";

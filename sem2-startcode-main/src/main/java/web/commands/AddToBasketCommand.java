@@ -39,6 +39,11 @@ public class AddToBasketCommand extends CommandUnprotectedPage {
 
         cartList.add(cartItem);
 
+        HttpSession session = request.getSession();
+
+        session.setAttribute("sumQuantity",sumQuantity(cartList));
+        session.setAttribute("sumPrice",sumPrice(cartList));
+
         return "index";
     }
 }

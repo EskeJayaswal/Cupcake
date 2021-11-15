@@ -45,6 +45,13 @@
                                 </td>
                             </tr>
                         </c:forEach>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col">${sessionScope.sumQuantity}pcs</th>
+                            <th scope="col">${sessionScope.sumPrice}kr</th>
+                            <th scope="col"></th>
+                        </tr>
                     </table>
                 </form>
 
