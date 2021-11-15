@@ -33,6 +33,7 @@ public abstract class Command
         commands.put("removeFromBasket", new RemoveFromBasketCommand(""));
         commands.put("myOrders", new MyOrdersCommand(""));
         commands.put("individualOrders", new IndividualOrdersCommand(""));
+        commands.put("confirmation", new ConfirmationCommand("confirmation"));
 
     }
 

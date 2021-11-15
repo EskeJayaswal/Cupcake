@@ -19,13 +19,14 @@ public class OrderLineMapper {
     }
 
 
-    public List<OrderLine> getAllOrders() throws UserException {
+    public List<OrderLine> getAllOrderLines(int orderId) throws UserException {
         List<OrderLine> orderList = null;
 
         try (Connection connection = database.connect()) {
-            String sql = "SELECT * FROM order_lines";
+            String sql = "SELECT * FROM order_lines WHERE order_id=?";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, orderId);
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
                     if (orderList == null) {

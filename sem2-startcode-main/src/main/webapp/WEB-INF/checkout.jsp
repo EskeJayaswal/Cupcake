@@ -62,7 +62,7 @@
             </div>
             <div class="container col-3 mx-5 my-5">
 
-                <form action="confirmation.html" method="post">
+                <form action="${pageContext.request.contextPath}/fc/confirmation" method="post">
                     <hr class="my-4">
 
                     <h4 class="my-3">Payment</h4>
