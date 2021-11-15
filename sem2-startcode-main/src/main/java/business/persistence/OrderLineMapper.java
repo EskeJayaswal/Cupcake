@@ -1,6 +1,5 @@
 package business.persistence;
 
-import business.entities.Order;
 import business.entities.OrderLine;
 import business.exceptions.UserException;
 
@@ -9,37 +8,39 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class OrderMapper {
+public class OrderLineMapper {
 
     private Database database;
 
-    public OrderMapper(Database database) {
+    public OrderLineMapper(Database database) {
         this.database = database;
     }
 
 
-    public List<Order> getAllOrders(int id) throws UserException {
-        List<Order> orderList = null;
+    public List<OrderLine> getAllOrders() throws UserException {
+        List<OrderLine> orderList = null;
 
         try (Connection connection = database.connect()) {
-            String sql = "SELECT * FROM orders WHERE user_id = ?";
+            String sql = "SELECT * FROM order_lines";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ResultSet rs = ps.executeQuery();
-                ps.setInt(1, id);
                 while (rs.next()) {
                     if (orderList == null) {
                         orderList = new ArrayList<>();
                     }
+                    int order_lines_id = rs.getInt("order_lines_id");
                     int order_id = rs.getInt("order_id");
-                    int user_id = rs.getInt("user_id");
-                    Date created = rs.getDate("created");
+                    int bottom_id = rs.getInt("bottom_id");
+                    int topping_id = rs.getInt("topping_id");
+                    int quantity = rs.getInt("quantity");
+                    float price = rs.getFloat("price");
 
-                    Order order = new Order(order_id, user_id, created);
-                    orderList.add(order);
+
+                    OrderLine orderline = new OrderLine(order_lines_id, order_id, bottom_id, topping_id, quantity, price);
+                    orderList.add(orderline);
                 }
 
             } catch (SQLException ex) {
@@ -51,4 +52,3 @@ public class OrderMapper {
         return orderList;
     }
 }
-

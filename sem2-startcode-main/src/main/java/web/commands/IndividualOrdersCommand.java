@@ -21,6 +21,7 @@ public class IndividualOrdersCommand extends CommandUnprotectedPage {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
+
         return "individualOrders";
     }
 }
