@@ -1,18 +1,20 @@
 package business.entities;
 
 public class CartItem {
+    private int id;
     private Bottom bottom;
     private Topping topping;
     private int quantity;
     private float price;
-    private int id;
+
 
     public CartItem(int id, Bottom bottom, Topping topping, int quantity, float price) {
+        this.id = id;
         this.bottom = bottom;
         this.topping = topping;
         this.quantity = quantity;
         this.price = price;
-        this.id = id;
+
     }
 
     public Bottom getBottom() {
@@ -53,5 +55,16 @@ public class CartItem {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "CartItem{" +
+                "id=" + id +
+                ", topping=" + topping +
+                ", quantity=" + quantity +
+                ", price=" + price +
+                ", bottom=" + bottom +
+                '}';
     }
 }

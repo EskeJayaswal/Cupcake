@@ -15,12 +15,11 @@ import java.util.List;
 
 public class MyOrdersCommand extends CommandUnprotectedPage {
     private OrderFacade orderFacade;
-    private List<Order> orderList;
 
     public MyOrdersCommand(String pageToShow) {
         super(pageToShow);
         orderFacade = new OrderFacade(database);
-        orderList = new ArrayList<>();
+
     }
 
     @Override
@@ -28,7 +27,6 @@ public class MyOrdersCommand extends CommandUnprotectedPage {
 
         HttpSession session = request.getSession();
         int currentUser = (int) session.getAttribute("userId");
-//        session.setAttribute("orderList", orderFacade.getAllOrders(1));
         request.getServletContext().setAttribute("orderList", orderFacade.getAllOrders(currentUser));
 
         return "myOrders";

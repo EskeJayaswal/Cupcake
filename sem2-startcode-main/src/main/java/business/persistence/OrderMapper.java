@@ -1,9 +1,6 @@
 package business.persistence;
 
-import business.entities.CartItem;
-import business.entities.Order;
-import business.entities.OrderLine;
-import business.entities.User;
+import business.entities.*;
 import business.exceptions.UserException;
 
 import java.sql.*;
@@ -14,9 +11,24 @@ import java.util.List;
 public class OrderMapper {
 
     private Database database;
+    private BottomMapper bottomMapper;
+    private ToppingMapper toppingMapper;
+
+    private List<Bottom> bottoms;
+    private List<Topping> toppings;
 
     public OrderMapper(Database database) {
         this.database = database;
+        bottomMapper = new BottomMapper(database);
+        toppingMapper = new ToppingMapper(database);
+
+        try {
+            bottoms = bottomMapper.getAllBottoms();
+            toppings = toppingMapper.getAllToppings();
+        } catch (UserException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
@@ -38,7 +50,9 @@ public class OrderMapper {
                     int user_id = rs.getInt("user_id");
                     Date created = rs.getDate("created");
 
-                    Order order = new Order(order_id, user_id, created);
+                    List<CartItem> orderlines = getAllOrderLines(order_id);
+
+                    Order order = new Order(order_id, user_id, created, orderlines);
 
 
                     orderList.add(order);
@@ -53,11 +67,11 @@ public class OrderMapper {
         return orderList;
     }
 
-    public List<OrderLine> getAllOrderLines(int orderId) throws UserException {
-        List<OrderLine> orderLineList = null;
-
+    public List<CartItem> getAllOrderLines(int orderId) throws UserException {
+        List<CartItem> orderLineList = null;
+        int id = 1;
         try (Connection connection = database.connect()) {
-            String sql = "SELECT * FROM order_lines WHERE order_id=?";
+            String sql = "SELECT * FROM orders_joined WHERE order_id=?";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setInt(1, orderId);
@@ -66,15 +80,18 @@ public class OrderMapper {
                     if (orderLineList == null) {
                         orderLineList = new ArrayList<>();
                     }
-                    int order_lines_id = rs.getInt("order_lines_id");
-                    int order_id = rs.getInt("order_id");
+
                     int bottom_id = rs.getInt("bottom_id");
                     int topping_id = rs.getInt("topping_id");
                     int quantity = rs.getInt("quantity");
                     float price = rs.getFloat("price");
 
+                    Bottom b = bottoms.get(bottom_id-1);
+                    Topping t = toppings.get(topping_id-1);
 
-                    OrderLine orderline = new OrderLine(order_lines_id, order_id, bottom_id, topping_id, quantity, price);
+
+                    CartItem orderline = new CartItem(id, b, t, quantity, price);
+                    id++;
                     orderLineList.add(orderline);
                 }
 
