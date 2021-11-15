@@ -43,7 +43,7 @@
             <div class="collapse navbar-collapse" id="navbarMainMenu">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="myOrders.html">My orders</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/fc/myOrders">My orders</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Settings</a>

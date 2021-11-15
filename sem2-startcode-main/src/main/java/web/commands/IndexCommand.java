@@ -18,9 +18,6 @@ public class IndexCommand extends CommandUnprotectedPage {
         super(pageToShow);
         logicFacade = new LogicFacade(database);
         cartList = new ArrayList<>();
-
-
-
     }
 
     @Override
