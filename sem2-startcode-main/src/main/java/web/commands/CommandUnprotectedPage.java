@@ -28,7 +28,6 @@ public class CommandUnprotectedPage extends Command
         int sum = 0;
         for (CartItem cartItem : list) {
             sum += cartItem.getQuantity();
-            System.out.println(sum);
         }
         return String.valueOf(sum);
     }
@@ -37,7 +36,6 @@ public class CommandUnprotectedPage extends Command
         int sum = 0;
         for (CartItem cartItem : list) {
             sum += cartItem.getPrice();
-            System.out.println(sum);
         }
         return String.valueOf(sum);
     }

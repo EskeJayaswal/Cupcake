@@ -17,7 +17,7 @@
 
         <div class="container">
             <div class="my-5">
-                <h1>Bestil dine cupcakes her</h1>
+                <h1>Order your cupcakes here.</h1>
             </div>
             <div class="row">
 
@@ -26,10 +26,10 @@
                         <div class="row">
 
                             <div class="col-md-5">
-                                <label for="bottom" class="form-label">Bund:</label>
+                                <label for="bottom" class="form-label">Bottom:</label>
                                 <select class="form-select" name="bottomSelection" id="bottom" required="">
                                     <c:forEach var="bottomList" items="${applicationScope.bottomList}">
-                                        <option value="${bottomList.id}">${bottomList.name}</option>
+                                        <option value="${bottomList.id}">${bottomList.name} (${bottomList.price}kr)</option>
                                     </c:forEach>
                                 </select>
 
@@ -39,7 +39,7 @@
                                 <select class="form-select" name="toppingSelection" id="topping" required="">
 
                                     <c:forEach var="toppingList" items="${applicationScope.toppingList}">
-                                        <option value="${toppingList.id}">${toppingList.name}</option>
+                                        <option value="${toppingList.id}">${toppingList.name} (${toppingList.price}kr)</option>
 
                                     </c:forEach>
 
@@ -47,14 +47,14 @@
 
                             </div>
                             <div class="col-md-3">
-                                <label for="quantity" class="form-label">Antal:</label>
-                                <input type="number" min="1" max="100" class="form-control" name="quantitySelection" id="quantity" value="quantity" placeholder=""
+                                <label for="quantity" class="form-label">Quantity:</label>
+                                <input type="number" min="1" max="5000" class="form-control" name="quantitySelection" id="quantity" value="quantity" placeholder=""
                                        required="">
                             </div>
 
 
                         </div>
-                        <button class="btn btn-primary mt-3" type="submit">Tilføj</button>
+                        <button class="btn btn-primary mt-3" type="submit">Add</button>
                     </form>
 
                 </div>
@@ -62,7 +62,7 @@
 
                 <div class="col-md-5 col-lg-5 order-md-last">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="text-primary">Din kurv</span>
+                        <span class="text-primary">Your cart</span>
                         <span class="badge bg-primary rounded-pill">${applicationScope.cartList.size()}</span>
                     </h4>
 
@@ -71,17 +71,17 @@
                         <c:forEach var="cartItem" items="${applicationScope.cartList}">
                         <li class="list-group-item d-flex justify-content-between lh-sm">
                             <div>
-                                <h6 class="my-0">${cartItem.bottom.getName()} bund med ${cartItem.topping.getName()} topping</h6>
-                                <small class="text-muted">${cartItem.quantity} stk</small>
+                                <h6 class="my-0">${cartItem.bottom.getName()} bottom with ${cartItem.topping.getName()} topping</h6>
+                                <small class="text-muted">${cartItem.quantity}<i>pcs</i></small>
                             </div>
-                            <span class="text-muted">${cartItem.price}kr</span>
+                            <span class="text-muted">${cartItem.price}<i>kr</i></span>
                         </li>
                         </c:forEach>
                     </ul>
 
 
                     <a href="${pageContext.request.contextPath}/fc/checkout">
-                        <button class="btn btn-primary mt-1" type="submit" value="">Gå til kurv</button>
+                        <button class="btn btn-primary mt-1" type="submit" value="">See cart</button>
                     </a>
                 </div>
 

@@ -14,16 +14,19 @@
 
     <jsp:body>
 
+
         <div class="row">
-            <div class="col-1">
 
-            </div>
 
-            <div class="container col-5 mx-5 my-5">
+            <div class="container col-7 mx-5 my-5">
+                <table class="table table-light mb-3">
+                   <tr><h5>Name: ${sessionScope.fname} ${sessionScope.lname}</h5></tr>
+                    <tr><h5>Balance: ${sessionScope.balance}</h5></tr>
+                </table>
 
 
                 <form action="${pageContext.request.contextPath}/fc/removeFromBasket" method="post">
-                    <input type="hidden" name="target" value="manageCart"/>
+
                     <table class="table table-light">
                         <tr>
                             <th scope="col">#</th>
@@ -36,11 +39,11 @@
                             <tr>
                                 <td>${cartItem.id}</td>
                                 <td>${cartItem.bottom.getName()} bottom with ${cartItem.topping.getName()} topping</td>
-                                <td>${cartItem.quantity}pcs</td>
-                                <td>${cartItem.price}kr</td>
+                                <td>${cartItem.quantity}<i>pcs</i></td>
+                                <td>${cartItem.price}<i>kr</i></td>
                                 <td>
                                     <button type="submit" name="fjernknap" value="${cartItem.getId()}"
-                                            class="btn btn-primary">Fjern
+                                            class="btn btn-primary">Remove
                                     </button>
                                 </td>
                             </tr>
@@ -48,8 +51,8 @@
                         <tr>
                             <th scope="col"></th>
                             <th scope="col"></th>
-                            <th scope="col">${sessionScope.sumQuantity}pcs</th>
-                            <th scope="col">${sessionScope.sumPrice}kr</th>
+                            <th scope="col">${sessionScope.sumQuantity}<i>pcs</i></th>
+                            <th scope="col">${sessionScope.sumPrice}<i>kr</i></th>
                             <th scope="col"></th>
                         </tr>
                     </table>
@@ -62,29 +65,27 @@
                 <form action="confirmation.html" method="post">
                     <hr class="my-4">
 
-                    <h4 class="mb-3">Betaling</h4>
+                    <h4 class="my-3">Payment</h4>
 
                     <div class="my-3">
                         <div class="form-check">
                             <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked=""
                                    required="">
-                            <label class="form-check-label" for="credit">Kort</label>
+                            <label class="form-check-label" for="credit">Credit card</label>
                         </div>
                         <div class="form-check">
                             <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
-                            <label class="form-check-label" for="debit">Kontant</label>
+                            <label class="form-check-label" for="debit">Account</label>
                         </div>
                     </div>
 
 
                     <hr class="my-4">
 
-                    <button class="w-100 btn btn-primary btn-lg" type="submit">Afslut ordre</button>
+                    <button class="btn btn-primary" type="submit">Confirm</button>
                 </form>
             </div>
-            <div class="col-1">
 
-            </div>
 
         </div>
 

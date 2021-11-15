@@ -34,7 +34,9 @@
                 <c:if test="${not empty param.msg}">
                     <p style="font-size: large">${param.msg}</p>
                 </c:if>
-                <button class="btn btn-primary" type="submit" value="Login">Log ind</button>
+                <button class="btn btn-primary" type="submit" value="Login">Login</button>
+
+                <a href="${pageContext.request.contextPath}/fc/registerpage" type="button" class="btn btn-primary">Register</a>
             </form>
 
 

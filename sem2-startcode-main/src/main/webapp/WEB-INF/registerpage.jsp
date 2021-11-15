@@ -15,7 +15,7 @@
                     <label class="col-sm-1 col-form-label" for="email">Email</label>
                     <div class="col-sm-4">
 
-                        <input id="email" class="form-control" type="text" name="email" value="${param.email}" placeholder="Indtast email">
+                        <input id="email" class="form-control" type="text" name="email" value="${param.email}" placeholder="Email">
 
                     </div>
                 </div>
@@ -23,32 +23,32 @@
                     <label class="col-sm-1 col-form-label" for="password1">Password</label>
                     <div class="col-sm-4">
 
-                        <input id="password1" class="form-control" type="password" name="password1"  value="${param.password1}"  placeholder="Indtast password">
+                        <input id="password1" class="form-control" type="password" name="password1"  value="${param.password1}"  placeholder="Password">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label class="col-sm-1 col-form-label" for="password2">Password</label>
                     <div class="col-sm-4">
 
-                        <input id="password2" class="form-control" type="password" name="password2" value="${param.password2}"  placeholder="Bekræft password">
+                        <input id="password2" class="form-control" type="password" name="password2" value="${param.password2}"  placeholder="Confirm password">
 
                     </div>
                 </div>
 
                 <div class="row mb-3">
-                    <label class="col-sm-1 col-form-label" for="fname">Fornavn</label>
+                    <label class="col-sm-1 col-form-label" for="fname">First name</label>
                     <div class="col-sm-4">
-                        <input id="fname" class="form-control" type="text" name="fname" value="${param.fname}" placeholder="Indtast fornavn">
+                        <input id="fname" class="form-control" type="text" name="fname" value="${param.fname}" placeholder="First name">
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="col-sm-1 col-form-label" for="lname">Efternavn</label>
+                    <label class="col-sm-1 col-form-label" for="lname">Last name</label>
                     <div class="col-sm-4">
-                        <input id="lname" class="form-control" type="text" name="lname" value="${param.lname}" placeholder="Indtast efternavn">
+                        <input id="lname" class="form-control" type="text" name="lname" value="${param.lname}" placeholder="Last name">
                     </div>
                 </div>
 
-                <input class="btn btn-primary" type="submit" value="Bekræft">
+                <input class="btn btn-primary" type="submit" value="Confirm">
             </form>
 
             <c:if test="${requestScope.error != null }">

@@ -1,9 +1,6 @@
 package web.commands;
 
-
-import business.entities.Bottom;
 import business.entities.CartItem;
-import business.entities.Topping;
 import business.exceptions.UserException;
 import business.services.LogicFacade;
 

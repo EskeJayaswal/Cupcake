@@ -43,13 +43,13 @@
             <div class="collapse navbar-collapse" id="navbarMainMenu">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="myOrders.html">Mine ordrer</a>
+                        <a class="nav-link" href="myOrders.html">My orders</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Indstillinger</a>
+                        <a class="nav-link" href="#">Settings</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Bestil</a>
+                        <a class="nav-link" href="#">Order</a>
                     </li>
                 </ul>
             </div>
@@ -82,9 +82,9 @@
                 </c:if>
                 <c:if test="${sessionScope.user == null }">
                     <a type="button" class="btn btn-sm  btn-outline-secondary"
-                       href="${pageContext.request.contextPath}/fc/loginpage">Log ind</a>
+                       href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
                     <a type="button" class="btn btn-sm  btn-outline-secondary"
-                       href="${pageContext.request.contextPath}/fc/registerpage">Ny bruger</a>
+                       href="${pageContext.request.contextPath}/fc/registerpage">Register</a>
                 </c:if>
             </div>
             </c:if>
