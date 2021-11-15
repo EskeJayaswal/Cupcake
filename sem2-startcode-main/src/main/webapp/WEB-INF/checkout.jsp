@@ -22,7 +22,7 @@
             <div class="container col-5 mx-5 my-5">
 
 
-                <form action="FrontController" method="post">
+                <form action="${pageContext.request.contextPath}/fc/removeFromBasket" method="post">
                     <input type="hidden" name="target" value="manageCart"/>
                     <table class="table table-light">
                         <tr>

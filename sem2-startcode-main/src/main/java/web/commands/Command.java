@@ -30,6 +30,7 @@ public abstract class Command
         commands.put("customerpage", new CommandProtectedPage("customerpage", "customer"));
         commands.put("employeepage", new CommandProtectedPage("employeepage", "employee"));
         commands.put("checkout", new CommandUnprotectedPage("checkout"));
+        commands.put("removeFromBasket", new RemoveFromBasketCommand(""));
 
     }
 
