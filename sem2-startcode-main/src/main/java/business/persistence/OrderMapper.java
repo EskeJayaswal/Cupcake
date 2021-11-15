@@ -25,11 +25,12 @@ public class OrderMapper {
         List<Order> orderList = null;
 
         try (Connection connection = database.connect()) {
-            String sql = "SELECT * FROM orders WHERE user_id = ?";
+            String sql = "SELECT * FROM orders WHERE user_id=?";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ResultSet rs = ps.executeQuery();
+
                 ps.setInt(1, id);
+                ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
                     if (orderList == null) {
                         orderList = new ArrayList<>();
@@ -39,6 +40,8 @@ public class OrderMapper {
                     Date created = rs.getDate("created");
 
                     Order order = new Order(order_id, user_id, created);
+
+
                     orderList.add(order);
                 }
 
