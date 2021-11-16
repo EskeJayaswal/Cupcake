@@ -17,22 +17,23 @@
             <div class="my-5">
                 <h1>Order overview</h1>
             </div>
+            <form action="${pageContext.request.contextPath}/fc/individualOrders" method="post">
 
             <div class="list-group">
-                <c:forEach var="orderList" items="${applicationScope.orderList}">
-                    <a href="${pageContext.request.contextPath}/fc/individualOrders"
-                       class="list-group-item list-group-item-action">
+                <c:forEach var="orderList" items="${sessionScope.orderList}">
+                    <button class="list-group-item list-group-item-action" type="submit" name="individualOrder" value="${orderList.order_id}">
+
                         <div class="d-flex w-100 justify-content-between">
 
 
-                            <option value="${orderList.user_id}">${orderList.created}</option>
+                            <option>${orderList.created}</option>
 
                         </div>
                         <p class="mb-1">Forudbestilt</p>
-                    </a>
+                    </button>
                 </c:forEach>
             </div>
-
+            </form>
         </div>
 
     </jsp:body>
