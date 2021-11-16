@@ -21,5 +21,7 @@
             </div>
         </div>
 
+        <a href="${pageContext.request.contextPath}/fc/checkout"></a>
+
     </jsp:body>
 </t:genericpage>
