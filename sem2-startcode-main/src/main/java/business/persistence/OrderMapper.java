@@ -54,7 +54,6 @@ public class OrderMapper {
 
                     Order order = new Order(order_id, user_id, created, orderlines);
 
-
                     orderList.add(order);
                 }
 
