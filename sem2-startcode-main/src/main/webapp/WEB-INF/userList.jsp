@@ -18,21 +18,21 @@
             <div class="my-3">
                 <h1>Users</h1>
             </div>
+            <form action="${pageContext.request.contextPath}/fc/userOrders" method="post">
 
             <ul class="list-group">
-                <c:forEach var="userList" items="${applicationScope.userList}">
-                    <a href="${pageContext.request.contextPath}/fc/userOrders"
-                       class="list-group-item list-group-item-action">
+                <c:forEach var="userList" items="${sessionScope.userList}">
+                    <button class="list-group-item list-group-item-action" type="submit" name="userIdAdmin" value="${userList.id}">
 
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <option value="${userList.email}">${userList.fname}</option>
+                            <option>${userList.fname}</option>
                             <span class="badge bg-primary rounded-pill">Antal ordre</span>
                         </li>
-                    </a>
+                    </button>
 
                 </c:forEach>
             </ul>
-
+            </form>
         </div>
 
     </jsp:body>

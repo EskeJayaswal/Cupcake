@@ -18,7 +18,7 @@ public class UserListCommand extends CommandUnprotectedPage {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
 
-        request.getServletContext().setAttribute("userList", userFacade.getAllUsers());
+        request.getSession().setAttribute("userList", userFacade.getAllUsers());
         return "userList";
     }
 }

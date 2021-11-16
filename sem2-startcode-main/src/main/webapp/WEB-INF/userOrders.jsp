@@ -20,13 +20,13 @@
             <form action="${pageContext.request.contextPath}/fc/individualOrders" method="post">
 
             <div class="list-group">
-                <c:forEach var="orderList" items="${sessionScope.orderList}">
-                    <button class="list-group-item list-group-item-action" type="submit" name="individualOrder" value="${orderList.order_id}">
+                <c:forEach var="orderListAdmin" items="${sessionScope.orderListAdmin}">
+                    <button class="list-group-item list-group-item-action" type="submit" name="individualOrder" value="${orderListAdmin.order_id}">
 
                         <div class="d-flex w-100 justify-content-between">
 
 
-                            <option>${orderList.created}</option>
+                            <option>${orderListAdmin.created}</option>
 
                         </div>
                         <p class="mb-1">Forudbestilt</p>

@@ -28,9 +28,7 @@ public class OrderMapper {
         } catch (UserException e) {
             e.printStackTrace();
         }
-
     }
-
 
     public List<Order> getAllOrders(int id) throws UserException {
         List<Order> orderList = null;

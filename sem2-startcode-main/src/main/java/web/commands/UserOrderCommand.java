@@ -13,10 +13,10 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyOrdersCommand extends CommandUnprotectedPage {
+public class UserOrderCommand extends CommandUnprotectedPage {
     private OrderFacade orderFacade;
 
-    public MyOrdersCommand(String pageToShow) {
+    public UserOrderCommand(String pageToShow) {
         super(pageToShow);
         orderFacade = new OrderFacade(database);
 
@@ -26,10 +26,10 @@ public class MyOrdersCommand extends CommandUnprotectedPage {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
 
         HttpSession session = request.getSession();
-        int currentUser = (int) session.getAttribute("userId");
-        session.setAttribute("orderList", orderFacade.getAllOrders(currentUser));
+        int chosenUser = Integer.parseInt(request.getParameter("userIdAdmin"));
+        session.setAttribute("orderListAdmin", orderFacade.getAllOrders(chosenUser));
 
 
-        return "myOrders";
+        return "userOrders";
     }
 }
