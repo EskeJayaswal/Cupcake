@@ -145,6 +145,29 @@ public class OrderMapper {
             throwables.printStackTrace();
         }
     }
+
+    public int getOrderCount(int id) throws UserException {
+        int orderCount = 0;
+
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT * FROM orders WHERE user_id=?";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+
+                ps.setInt(1, id);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    orderCount++;
+                }
+
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new UserException("Connection to database could not be established");
+        }
+        return orderCount;
+    }
 }
 
 

@@ -26,7 +26,7 @@
 
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <option>${userList.fname}</option>
-                            <span class="badge bg-primary rounded-pill">Antal ordre</span>
+                            <span class="badge bg-primary rounded-pill">Number of orders: ${userList.orderCount}</span>
                         </li>
                     </button>
 

@@ -3,6 +3,7 @@ package business.services;
 import business.entities.Order;
 import business.entities.User;
 import business.persistence.Database;
+import business.persistence.OrderMapper;
 import business.persistence.UserMapper;
 import business.exceptions.UserException;
 
@@ -11,10 +12,12 @@ import java.util.List;
 public class UserFacade
 {
     UserMapper userMapper;
+    OrderMapper orderMapper;
 
     public UserFacade(Database database)
     {
         userMapper = new UserMapper(database);
+        orderMapper = new OrderMapper(database);
     }
 
     public User login(String email, String password) throws UserException
@@ -31,5 +34,9 @@ public class UserFacade
 
     public List<User> getAllUsers() throws UserException {
         return userMapper.getAllUsers();
+    }
+
+    public int getOrderCount(int id) throws UserException {
+        return orderMapper.getOrderCount(id);
     }
 }

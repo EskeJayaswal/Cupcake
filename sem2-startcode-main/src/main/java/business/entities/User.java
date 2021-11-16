@@ -1,10 +1,22 @@
 package business.entities;
 
+import business.exceptions.UserException;
+import business.persistence.OrderMapper;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class User
 {
+    private int id; // just used to demo retrieval of autogen keys in UserMapper
+    private String email;
+    private String password; // Should be hashed and secured
+    private String fname;
+    private String lname;
+    private float balance;
+    private String role;
+    private int orderCount;
+
 
     public User(String email, String password, String fname, String lname, float balance, String role)
     {
@@ -14,15 +26,16 @@ public class User
         this.lname = lname;
         this.balance = balance;
         this.role = role;
+        this.orderCount = 0;
     }
 
-    private int id; // just used to demo retrieval of autogen keys in UserMapper
-    private String email;
-    private String password; // Should be hashed and secured
-    private String fname;
-    private String lname;
-    private float balance;
-    private String role;
+    public int getOrderCount() {
+        return orderCount;
+    }
+
+    public void setOrderCount(int orderCount) {
+        this.orderCount = orderCount;
+    }
 
     public String getEmail()
     {
