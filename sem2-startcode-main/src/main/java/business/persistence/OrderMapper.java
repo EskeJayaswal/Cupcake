@@ -28,9 +28,7 @@ public class OrderMapper {
         } catch (UserException e) {
             e.printStackTrace();
         }
-
     }
-
 
     public List<Order> getAllOrders(int id) throws UserException {
         List<Order> orderList = null;
@@ -53,7 +51,6 @@ public class OrderMapper {
                     List<CartItem> orderlines = getAllOrderLines(order_id);
 
                     Order order = new Order(order_id, user_id, created, orderlines);
-
 
                     orderList.add(order);
                 }

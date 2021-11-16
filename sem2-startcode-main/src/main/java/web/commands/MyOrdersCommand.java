@@ -27,7 +27,8 @@ public class MyOrdersCommand extends CommandUnprotectedPage {
 
         HttpSession session = request.getSession();
         int currentUser = (int) session.getAttribute("userId");
-        request.getServletContext().setAttribute("orderList", orderFacade.getAllOrders(currentUser));
+        session.setAttribute("orderList", orderFacade.getAllOrders(currentUser));
+
 
         return "myOrders";
     }

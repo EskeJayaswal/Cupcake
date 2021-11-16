@@ -20,39 +20,29 @@
             </div>
 
             <ol class="list-group list-group-numbered">
+                <c:forEach var="currentOrder" items="${sessionScope.currentOrder}">
+
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
-                        <div class="fw-bold">Blåbærbund med peanut-topping</div>
-                        Antal: 20
+                        <div class="fw-bold">${currentOrder.bottom.name} bottom with ${currentOrder.topping.name} topping</div>
+                        ${currentOrder.quantity}<i>pcs</i>
                     </div>
-                    <small>1200 dkk</small>
+                    <small>${currentOrder.price}<i>kr</i></small>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
-                        <div class="fw-bold">Mandelbund med jordbær-topping</div>
-                        Antal: 40
-                    </div>
-                    <small>600 dkk</small>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
-                        <div class="fw-bold">Klassisk bund med chokolade-topping</div>
-                        Antal: 30
-                    </div>
-                    <small>1500 dkk</small>
-                </li>
+
+                </c:forEach>
             </ol>
-            <div>
+           <!-- <div>
                 <p class="fs-6">Ordren kan afhentes senest: 10/11/2021</p>
-            </div>
+            </div>-->
 
             <div class="badge bg-primary rounded-pill" name="subtotal" id="subtotal" style="width: 150px">
-                Subtotal: DKK 1400
+                Total: ${sessionScope.sumOfCurrentOrder}<i>kr</i>
             </div>
 
             <div class="container" id="buttonContainer">
-                <button type="button" class="btn btn-primary" id="button1">Anuller ordre</button>
-                <button type="button" class="btn btn-primary" id="button2">Rediger ordre</button>
+                <button type="button" class="btn btn-primary" id="button1">Cancel</button>
+                <button type="button" class="btn btn-primary" id="button2">Modify</button>
             </div>
 
         </div>
