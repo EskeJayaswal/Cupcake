@@ -1,9 +1,12 @@
 package business.services;
 
+import business.entities.Order;
 import business.entities.User;
 import business.persistence.Database;
 import business.persistence.UserMapper;
 import business.exceptions.UserException;
+
+import java.util.List;
 
 public class UserFacade
 {
@@ -24,5 +27,9 @@ public class UserFacade
         User user = new User(email, password, fname, lname, balance, "customer");
         userMapper.createUser(user);
         return user;
+    }
+
+    public List<User> getAllUsers() throws UserException {
+        return userMapper.getAllUsers();
     }
 }

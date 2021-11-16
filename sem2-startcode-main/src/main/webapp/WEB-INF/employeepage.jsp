@@ -11,6 +11,15 @@
     <jsp:body>
         <h1>Hello ${sessionScope.email} </h1>
         You are now logged in as a EMPLOYEE of our wonderful site.
+        <div class="container">
+            <div class="my-5">
+                <h1>Options</h1>
+            </div>
+            <div>
+                <a type="button" class="btn btn-sm  btn-outline-secondary"
+                   href="${pageContext.request.contextPath}/fc/userList">Administrate users</a>
+            </div>
+        </div>
 
     </jsp:body>
 </t:genericpage>

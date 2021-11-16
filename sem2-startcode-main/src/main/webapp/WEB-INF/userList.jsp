@@ -14,24 +14,23 @@
 
     <jsp:body>
         <div class="container">
-            <div class="my-5">
-                <h1>Order overview</h1>
+            <div class="my-3">
+                <h1>Users</h1>
             </div>
 
-            <div class="list-group">
-                <c:forEach var="orderList" items="${applicationScope.orderList}">
-                    <a href="${pageContext.request.contextPath}/fc/individualOrders"
+            <ul class="list-group">
+                <c:forEach var="userList" items="${applicationScope.userList}">
+                    <a href="${pageContext.request.contextPath}/fc/userOrders"
                        class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
 
-
-                            <option value="${orderList.user_id}">${orderList.created}</option>
-
-                        </div>
-                        <p class="mb-1">Forudbestilt</p>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <option value="${userList.email}">${userList.fname}</option>
+                            <span class="badge bg-primary rounded-pill">Antal ordre</span>
+                        </li>
                     </a>
+
                 </c:forEach>
-            </div>
+            </ul>
 
         </div>
 
