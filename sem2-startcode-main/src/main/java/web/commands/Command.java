@@ -35,6 +35,7 @@ public abstract class Command
         commands.put("individualOrders", new IndividualOrdersCommand(""));
         commands.put("confirmation", new ConfirmationCommand("confirmation"));
         commands.put("userList", new UserListCommand(""));
+        commands.put("userOrders", new UserOrderCommand(""));
 
     }
 

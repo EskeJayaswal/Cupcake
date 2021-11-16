@@ -100,6 +100,7 @@ public class UserMapper
                     if (userList == null) {
                         userList = new ArrayList<>();
                     }
+                    int id = rs.getInt("id");
                     String email = rs.getString("email");
                     String password = rs.getString("password");
                     String fname = rs.getString("fname");
@@ -110,7 +111,7 @@ public class UserMapper
                     // List<CartItem> orderlines = getAllOrderLines(order_id);
 
                     User user = new User(email, password, fname, lname, balance, role);
-
+                    user.setId(id);
                     userList.add(user);
                 }
 
