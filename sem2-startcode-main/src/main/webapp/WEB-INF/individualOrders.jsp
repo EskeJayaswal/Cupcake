@@ -32,9 +32,9 @@
 
                 </c:forEach>
             </ol>
-           <!-- <div>
+           <div>
                 <p class="fs-6">Ordren kan afhentes senest: 10/11/2021</p>
-            </div>-->
+            </div>
 
             <div class="badge bg-primary rounded-pill" name="subtotal" id="subtotal" style="width: 150px">
                 Total: ${sessionScope.sumOfCurrentOrder}<i>kr</i>
