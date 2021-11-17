@@ -118,6 +118,7 @@ public class OrderMapper {
                 generatedId = ids.getInt(1);
 
                 createOrderLines(cartItemList, generatedId);
+                createStatus(generatedId);
 
             }
 
@@ -139,7 +140,27 @@ public class OrderMapper {
                 ps.setInt(4, cartItem.getQuantity());
                 ps.setFloat(5, cartItem.getPrice());
                 ps.executeUpdate();
+
             }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public void createStatus(int id) throws UserException {
+
+
+        try {
+            Connection connection = database.connect();
+            String sql = "INSERT INTO orders_status_link (order_id, status_id) VALUES (?,?)";
+            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            ps.setInt(1, id);
+            ps.setInt(2, 1); // Default status for new orders.
+            ps.executeUpdate();
+
+
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
