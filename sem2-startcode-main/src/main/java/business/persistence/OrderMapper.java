@@ -47,10 +47,11 @@ public class OrderMapper {
                     int order_id = rs.getInt("order_id");
                     int user_id = rs.getInt("user_id");
                     Date created = rs.getDate("created");
+                    String status = getStatus(order_id);
 
                     List<CartItem> orderlines = getAllOrderLines(order_id);
 
-                    Order order = new Order(order_id, user_id, created, orderlines);
+                    Order order = new Order(order_id, user_id, created, orderlines, status);
 
                     orderList.add(order);
                 }
@@ -191,6 +192,30 @@ public class OrderMapper {
         }
 
     }
+
+    public String getStatus(int orderId) throws UserException {
+        String status = "";
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT * FROM orders_status WHERE order_id=?";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, orderId);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+
+                    status = rs.getString("status_text");
+
+                }
+
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new UserException("Connection to database could not be established");
+        }
+        return status;
+    }
+
 }
 
 

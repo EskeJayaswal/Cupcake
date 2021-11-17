@@ -35,6 +35,4 @@ public class StatusMapper {
         return status;
     }
 
-
-
 }

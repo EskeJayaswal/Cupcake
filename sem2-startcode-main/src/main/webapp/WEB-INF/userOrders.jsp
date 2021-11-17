@@ -29,7 +29,7 @@
                             <option>${orderListAdmin.created}</option>
 
                         </div>
-                        <p class="mb-1">Forudbestilt</p>
+                        <p class="mb-1">${orderListAdmin.status}</p>
                     </button>
                 </c:forEach>
             </div>

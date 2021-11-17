@@ -12,11 +12,12 @@ public class Order {
     private String status;
     private List<CartItem> orderLines;
 
-    public Order(int order_id, int user_id, Date created, List<CartItem> orderLines) {
+    public Order(int order_id, int user_id, Date created, List<CartItem> orderLines, String status) {
         this.order_id = order_id;
         this.user_id = user_id;
         this.created = created;
         this.orderLines = orderLines;
+        this.status = status;
     }
 
     public int getOrder_id() {
