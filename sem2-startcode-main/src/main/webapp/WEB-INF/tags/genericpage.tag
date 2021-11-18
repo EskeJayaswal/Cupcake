@@ -42,9 +42,11 @@
 
             <div class="collapse navbar-collapse" id="navbarMainMenu">
                 <ul class="navbar-nav ml-auto">
+                    <c:if test="${sessionScope.user.role == 'customer' }">
                     <li class="nav-item">
                         <a class="nav-link" href="${pageContext.request.contextPath}/fc/myOrders">My orders</a>
                     </li>
+                    </c:if>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Settings</a>
                     </li>
