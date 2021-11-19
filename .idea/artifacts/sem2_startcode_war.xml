@@ -9,7 +9,7 @@
         <unpackNestedArchives>false</unpackNestedArchives>
       </options>
     </properties>
-    <root id="archive" name="sem2-startcode-1.0-SNAPSHOT.war">
+    <root id="archive" name="cupcake-1.0.war">
       <element id="artifact" artifact-name="sem2-startcode:war exploded" />
     </root>
   </artifact>

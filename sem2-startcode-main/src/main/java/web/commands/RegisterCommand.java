@@ -33,9 +33,12 @@ public class RegisterCommand extends CommandUnprotectedPage
         {
             User user = userFacade.createUser(email, password1, fname, lname, balance);
             HttpSession session = request.getSession();
-            session.setAttribute("email", email);
             session.setAttribute("user", user);
-            session.setAttribute("role", user.getRole());
+            session.setAttribute("userId",user.getId());
+            session.setAttribute("email", email);
+            session.setAttribute("fname", user.getFname());
+            session.setAttribute("lname", user.getLname());
+            session.setAttribute("balance", user.getBalance());
             return user.getRole() + "page";
         }
         else

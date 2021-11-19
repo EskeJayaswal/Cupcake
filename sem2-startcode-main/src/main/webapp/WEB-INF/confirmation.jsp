@@ -5,7 +5,7 @@
 <t:genericpage>
 
     <jsp:attribute name="header">
-         Home
+         Confirmation
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -23,7 +23,7 @@
                     <div class="text-center">
                         <h1 class="my-5 p-4 display-5 fw-normal text-dark">Your order is now processed.</h1>
                         <h2 class="my-5 p-4 text-dark">Confirmation mail sent to: ${sessionScope.email}</h2>
-                        <a href="${pageContext.request.contextPath}/fc/index" class="btn btn-primary btn-lg">Til forside</a>
+                        <a href="${pageContext.request.contextPath}/fc/index" class="btn btn-primary btn-lg">Back</a>
                     </div>
 
                 </div>

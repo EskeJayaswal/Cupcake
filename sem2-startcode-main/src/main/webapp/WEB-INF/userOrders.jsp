@@ -5,7 +5,7 @@
 <t:genericpage>
 
     <jsp:attribute name="header">
-         Home
+         Customer's orders
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -17,7 +17,7 @@
             <div class="my-5">
                 <h1>Order overview</h1>
             </div>
-            <form action="${pageContext.request.contextPath}/fc/individualOrders" method="post">-
+            <!--<form action="${pageContext.request.contextPath}/fc/individualOrders" method="post">-->
 
 
             <div class="list-group">
@@ -36,7 +36,7 @@
                     </button>
                 </c:forEach>
             </div>
-            </form>
+            <!--</form>-->
         </div>
 
     </jsp:body>

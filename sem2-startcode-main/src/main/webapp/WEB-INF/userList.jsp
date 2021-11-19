@@ -6,7 +6,7 @@
 <t:genericpage>
 
     <jsp:attribute name="header">
-         Home
+         Customers
     </jsp:attribute>
 
     <jsp:attribute name="footer">
